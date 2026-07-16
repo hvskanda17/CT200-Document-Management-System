@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.api.document_api import router as document_router
 from app.database.database import engine, Base
 
 from app.models import (
@@ -16,10 +16,4 @@ app = FastAPI(
     title="CT-200 Document Management API",
     version="1.0.0"
 )
-
-
-@app.get("/")
-def root():
-    return {
-        "message": "CT-200 Backend Running Successfully"
-    }
+app.include_router(document_router)
