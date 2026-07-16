@@ -31,3 +31,5 @@ class Node(Base):
     content_hash = Column(String)
 
     order_index = Column(Integer)
+
+    page_number = Column(Integer)

@@ -3,13 +3,15 @@ import re
 
 class TreeNode:
 
-    def __init__(self, heading="", level=0, node_type="root"):
+    def __init__(self, heading="", level=0, node_type="root",page_number=None):
 
         self.heading = heading
 
         self.level = level
 
         self.node_type = node_type
+
+        self.page_number = page_number
 
         self.content = ""
 

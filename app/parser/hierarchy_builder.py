@@ -53,7 +53,8 @@ class HierarchyBuilder:
                 node = TreeNode(
                     heading=text,
                     level=level,
-                    node_type="heading"
+                    node_type="heading",
+                    page_number=block["page"]
                 )
 
                 while stack and stack[-1].level >= level:
