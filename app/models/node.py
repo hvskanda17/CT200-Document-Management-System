@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Text
+
 from app.database.database import Base
 
 
@@ -19,10 +20,14 @@ class Node(Base):
         nullable=True
     )
 
-    heading = Column(String)
+    section_number = Column(String, nullable=False)
 
-    level = Column(Integer)
+    title = Column(String, nullable=False)
 
-    body = Column(Text)
+    level = Column(Integer, nullable=False)
+
+    content = Column(Text)
 
     content_hash = Column(String)
+
+    order_index = Column(Integer)

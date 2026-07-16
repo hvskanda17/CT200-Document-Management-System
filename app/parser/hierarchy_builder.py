@@ -51,7 +51,7 @@ class HierarchyBuilder:
                 level = self.get_heading_level(text)
 
                 node = TreeNode(
-                    title=text,
+                    heading=text,
                     level=level,
                     node_type="heading"
                 )
