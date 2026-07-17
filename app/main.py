@@ -4,6 +4,7 @@ from app.api.version_api import router as version_router
 from app.database.database import engine, Base
 from app.models.selection import Selection
 from app.models.selection_node import SelectionNode
+from app.api.qa_api import router as qa_router
 from app.api.selection_api import router as selection_router
 from app.models import (
     document,
@@ -22,3 +23,4 @@ app = FastAPI(
 app.include_router(document_router)
 app.include_router(version_router)
 app.include_router(selection_router)
+app.include_router(qa_router)

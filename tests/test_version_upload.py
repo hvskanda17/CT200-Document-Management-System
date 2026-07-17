@@ -14,7 +14,7 @@ def main():
     print("READING VERSION 2 PDF")
     print("=" * 60)
 
-    reader = PDFReader("data/ct200_manual.pdf")
+    reader = PDFReader("data/ct200_manual_v2.pdf")
 
     blocks = reader.extract_blocks()
 
