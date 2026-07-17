@@ -9,7 +9,8 @@ from app.models.node import Node
 
 from app.schemas.qa_schema import QAResponse, QAPair
 from app.services.gemini_service import GeminiService
-
+from app.database.mongo import generated_collection
+from datetime import datetime
 router = APIRouter(
     prefix="/api",
     tags=["QA Generation"]
@@ -61,7 +62,24 @@ def generate_qa(
     content = "\n\n".join(content_parts)
 
     qa_pairs = GeminiService.generate_qa(content)
+    generated_collection.insert_one({
 
+    "selection_id": selection_id,
+
+    "version_id": selection.version_id,
+
+    "generated_at": datetime.utcnow(),
+
+    "node_ids": [
+        sn.node_id
+        for sn in selection_nodes
+    ],
+
+    "content": content,
+
+    "qa_pairs": qa_pairs
+
+    })
     return QAResponse(
         selection_id=selection_id,
         test_cases=[
